@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chapitre 7 on Docker Patterns</title>
+    <link>http://www.docker-patterns.org/tags/chapitre-7/</link>
+    <description>Recent content in Chapitre 7 on Docker Patterns</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Fri, 02 Sep 2016 15:24:18 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.docker-patterns.org/tags/chapitre-7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Dockerfile HEALTHCHECK</title>
+      <link>http://www.docker-patterns.org/post/dockerfile-healthcheck/</link>
+      <pubDate>Fri, 02 Sep 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/dockerfile-healthcheck/</guid>
+      <description>Une autre nouveauté de Docker v1.12 est l&amp;rsquo;ajout de l&amp;rsquo;instruction HEALTHCHECK pour le Dockerfile.
+En effet, avec le nouveau mode Swarm, un docker ps n&amp;rsquo;est plus suffisant: si le conteneur &amp;ldquo;tourne&amp;rdquo; mais que l&amp;rsquo;application à l&amp;rsquo;intérieur du conteneur ne renvoie que des erreurs, comment Docker Swarm peut-il savoir qu&amp;rsquo;il doit redémarrer le conteneur? C&amp;rsquo;est là que la l&amp;rsquo;instruction HEALTHCHECK entre en jeux. Avant Docker 1.12, il fallait utiliser des mécanismes tel que les health checks de Consul ou ceux de Mesosphere.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,793 @@
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            
+                <title>Installer Docker Swarm avec Vagrant et Ansible</title>
+            
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.49.2" />
+        
+
+
+        
+            <meta name="author" content="Thomas Garlot">
+        
+        
+            
+                <meta name="description" content="Docker ">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Installer Docker Swarm avec Vagrant et Ansible"/>
+<meta name="twitter:description" content="Nous avons vu dans un post précédent comment créer un cluster Docker Swarm à l&rsquo;aide de Docker Machine. Bien qu&rsquo;efficace, il nous a fallu avoir recours à de nombreuses commandes manuelles, récupérer des tokens&hellip; Bref, rien de très reproductible.
+C&rsquo;est là où les outils de gestion d&rsquo;infrastructure tel qu&rsquo; Ansible entrent en jeux. Couplé avec Vagrant, nous allons voir comment nous pouvons facilement monter notre Swarm de manière rapide, automatisée et surtout fiable."/>
+
+        <meta property="og:title" content="Installer Docker Swarm avec Vagrant et Ansible" />
+<meta property="og:description" content="Nous avons vu dans un post précédent comment créer un cluster Docker Swarm à l&rsquo;aide de Docker Machine. Bien qu&rsquo;efficace, il nous a fallu avoir recours à de nombreuses commandes manuelles, récupérer des tokens&hellip; Bref, rien de très reproductible.
+C&rsquo;est là où les outils de gestion d&rsquo;infrastructure tel qu&rsquo; Ansible entrent en jeux. Couplé avec Vagrant, nous allons voir comment nous pouvons facilement monter notre Swarm de manière rapide, automatisée et surtout fiable." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/" /><meta property="article:published_time" content="2016-12-26T15:24:18&#43;00:00"/>
+<meta property="article:modified_time" content="2016-12-26T15:24:18&#43;00:00"/>
+
+        
+<meta itemprop="name" content="Installer Docker Swarm avec Vagrant et Ansible">
+<meta itemprop="description" content="Nous avons vu dans un post précédent comment créer un cluster Docker Swarm à l&rsquo;aide de Docker Machine. Bien qu&rsquo;efficace, il nous a fallu avoir recours à de nombreuses commandes manuelles, récupérer des tokens&hellip; Bref, rien de très reproductible.
+C&rsquo;est là où les outils de gestion d&rsquo;infrastructure tel qu&rsquo; Ansible entrent en jeux. Couplé avec Vagrant, nous allons voir comment nous pouvons facilement monter notre Swarm de manière rapide, automatisée et surtout fiable.">
+
+
+<meta itemprop="datePublished" content="2016-12-26T15:24:18&#43;00:00" />
+<meta itemprop="dateModified" content="2016-12-26T15:24:18&#43;00:00" />
+<meta itemprop="wordCount" content="636">
+
+
+
+<meta itemprop="keywords" content="Docker Swarm,Chapitre 11,Docker 1.12," />
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-83634681-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+    
+<header id="header">
+    
+        <h2><a href="/">Docker patterns</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/categories">
+                        Categories
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li id="share-nav" class="share-menu" style="display:none;">
+                <a class="fa-share-alt" href="#share-menu">Share</a>
+            </li>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://www.docker-patterns.org">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://www.docker-patterns.org">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/categories">
+                            <h3>
+                                
+                                Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/"><p>Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/"><p>Installer Docker Swarm avec Vagrant et Ansible</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    <section id="share-menu">
+    <section id="social-share-nav">
+        <ul class="links">
+            <header>
+                <h3>Share this post <i class="fa fa-smile-o"></i></h3>
+            </header>
+            
+
+
+<li><a href="//twitter.com/share?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2fdocker-swarm-with-ansible-vagrant%2f&text=Installer%20Docker%20Swarm%20avec%20Vagrant%20et%20Ansible&via=" target="_blank" class="share-btn twitter">
+    <i class="fa fa-twitter"></i>
+    <p>Twitter</p>
+</a></li>
+
+
+<li><a href="//plus.google.com/share?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2fdocker-swarm-with-ansible-vagrant%2f" target="_blank" class="share-btn google-plus">
+    <i class="fa fa-google-plus"></i>
+    <p>Google+</p>
+</a></li>
+
+
+<li><a href="//www.facebook.com/sharer/sharer.php?u=http%3a%2f%2fwww.docker-patterns.org%2fpost%2fdocker-swarm-with-ansible-vagrant%2f" target="_blank" class="share-btn facebook">
+    <i class="fa fa-facebook"></i>
+    <p>Facebook</p>
+</a></li>
+
+
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2fdocker-swarm-with-ansible-vagrant%2f&title=Installer%20Docker%20Swarm%20avec%20Vagrant%20et%20Ansible" target="_blank" class="share-btn reddit">
+    <i class="fa fa-reddit-alien"></i>
+    <p>Reddit</p>
+</a></li>
+
+
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2fdocker-swarm-with-ansible-vagrant%2f&title=Installer%20Docker%20Swarm%20avec%20Vagrant%20et%20Ansible" target="_blank" class="share-btn linkedin">
+    <i class="fa fa-linkedin"></i>
+    <p>LinkedIn</p>
+</a></li>
+
+
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2fdocker-swarm-with-ansible-vagrant%2f&title=Installer%20Docker%20Swarm%20avec%20Vagrant%20et%20Ansible" target="_blank" class="share-btn stumbleupon">
+    <i class="fa fa-stumbleupon"></i>
+    <p>StumbleUpon</p>
+</a></li>
+
+
+<li><a href="mailto:?subject=Check out this post by Thomas%20Garlot&body=http%3a%2f%2fwww.docker-patterns.org%2fpost%2fdocker-swarm-with-ansible-vagrant%2f" target="_blank" class="share-btn email">
+    <i class="fa fa-envelope"></i>
+    <p>Email</p>
+</a></li>
+
+        </ul>
+    </section>
+</section>
+
+    
+    <div id="main">
+        
+        
+        <article class="post">
+    <header>
+    <div class="title">
+        
+            <h1><a href="http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/">Installer Docker Swarm avec Vagrant et Ansible</a></h1>
+            
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime="2016-12-26T15:24:18Z">
+            26 décembre 2016</time>
+        <span class="author">Thomas Garlot</span>
+        
+            <p>3 minutes de lecture</p>
+        
+        
+    </div>
+</header>
+
+
+    <section id="social-share">
+  
+    <a class="button" href="/tags/docker-swarm">Docker Swarm</a>
+  
+    <a class="button" href="/tags/chapitre-11">Chapitre 11</a>
+  
+    <a class="button" href="/tags/docker-1.12">Docker 1.12</a>
+  
+
+    </section>
+    
+
+    <div id="content">
+        
+
+<p>Nous avons vu dans un post <a href="/post/docker-swarm-with-docker-1-12/">précédent</a> comment créer un cluster Docker Swarm à l&rsquo;aide de Docker Machine. Bien qu&rsquo;efficace, il nous a fallu avoir recours à de nombreuses commandes manuelles, récupérer des tokens&hellip; Bref, rien de très reproductible.</p>
+
+<p>C&rsquo;est là où les outils de  gestion d&rsquo;infrastructure tel qu&rsquo; <a href="https://www.ansible.com/">Ansible</a> entrent en jeux. Couplé avec <a href="https://www.vagrantup.com/">Vagrant</a>, nous allons voir comment nous pouvons facilement monter notre Swarm de manière rapide, automatisée et surtout fiable.</p>
+
+<p>Tout le code nécessaire est disponibe dans le dépôt Github <a href="https://github.com/dunod-docker/docker-swarm-with-ansible-vagrant">docker-swarm-with-ansible-vagrant</a>.</p>
+
+<pre><code class="bash">$ git clone https://github.com/dunod-docker/docker-swarm-with-ansible-vagrant
+$ cd dunod-docker/docker-swarm-with-ansible-vagrant
+$ ls -1
+Vagrantfile
+ansible
+scripts
+</code></pre>
+
+<p>Commençons par regarder la configuration de nos différentes machines virtuelles.</p>
+
+<h1 id="notre-fichier-vagrant">Notre fichier Vagrant</h1>
+
+<p>Tout d&rsquo;abord, nous allons créer nos VMs &ldquo;swarm worker&rdquo;. Nous utilisons simplement une boucle pour créer 3 VMS swarm-worker-01, swarm-worker-02 et swarm-worker-03.</p>
+
+<pre><code class="ruby">(1..3).each do |i|
+  config.vm.define "swarm-worker-0#{i}" do |d|
+    d.vm.box = "centos/7"
+    d.vm.hostname = "swarm-worker-0#{i}"
+    d.vm.network "private_network", ip: "10.100.192.20#{i}"
+    d.vm.provider "virtualbox" do |v|
+      v.memory = 1024
+    end
+  end
+end
+</code></pre>
+
+<p>Puis notre &ldquo;swarm manager&rdquo;:
+<pre><code class="ruby">config.vm.define &ldquo;swarm-manager&rdquo; do |d|
+  d.vm.box = &ldquo;centos/7&rdquo;
+  d.vm.hostname = &ldquo;swarm-manager&rdquo;
+  d.vm.network &ldquo;private_network&rdquo;, ip: &ldquo;10.100.192.200&rdquo;
+  d.vm.provision :shell, path: &ldquo;scripts/bootstrap_ansible.sh&rdquo;
+  d.vm.provision :shell, inline: &ldquo;PYTHONUNBUFFERED=1 ansible-playbook /vagrant/ansible/playbook.yml -i /vagrant/ansible/hosts/swarm&rdquo;
+  d.vm.provider &ldquo;virtualbox&rdquo; do |v|
+    v.memory = 1024
+  end
+</code></pre></p>
+
+<p>Rien de vraiment compliqué à l&rsquo;exception des 2 lignes commençant par &ldquo;d.vm.provision&rdquo;. C&rsquo;est via ces 2 instructions que nous allons tout d&rsquo;abord installer Ansible sur notre VM swarm-manager puis lancer ensuite la création de notre cluster Docker Swarm.</p>
+
+<h1 id="installation-d-ansible">Installation d&rsquo;Ansible</h1>
+
+<p>L&rsquo;installation se fait simplement à l&rsquo;aide du script bootstrap_ansible.sh: il installe le dépôt EPEL ainsi qu&rsquo;Ansible et copie le ficher de configuration d&rsquo;Ansible dans /etc/ansible.
+<pre><code class="bash">#!/bin/bash
+set -e
+echo &ldquo;Installing Ansible&hellip;&rdquo;
+yum install -y epel-release
+yum update -y
+yum install -y  ansible
+yum clean all
+cp /vagrant/ansible/ansible.cfg /etc/ansible/ansible.cfg
+</code></pre></p>
+
+<h1 id="configuration-d-ansible">Configuration d&rsquo;Ansible</h1>
+
+<p>Nous arrivons dans la partie où Ansible révèle toute sa puissance. Nous allons tout d&rsquo;abord utiliser un role de <a href="https://galaxy.ansible.com/atosatto/docker-swarm/">l&rsquo;Ansible Galaxy</a> qui va:</p>
+
+<ul>
+<li>Installer le Docker Engine</li>
+<li>Rajouter notre utilisateur &ldquo;vagrant&rdquo; au groupe &ldquo;docker&rdquo;</li>
+<li>Et finalement configurer automatiquement notre cluster.</li>
+</ul>
+
+<p>Il suffit pour cela de récupérer le code du role et le copier dans le répertoir &ldquo;roles&rdquo; d&rsquo;Ansible puis de le configurer.</p>
+
+<h2 id="le-fichier-playbook-yml">Le fichier playbook.yml</h2>
+
+<p>Ce fichier est relativement simple. Il liste simplement les rôles à éxécuter (&ldquo;{ role: ansible-dockerswarm }&ldquo;), avec quel utilisateur (&ldquo;vagrant&rdquo;) et sur quels hôtes de notre inventaire (&ldquo;all&rdquo; donc sur toutes nos VMs)</p>
+
+<pre><code class="yaml">- name: "Provision Docker Swarm Cluster"
+  hosts: all
+  remote_user: vagrant
+  roles:
+     - { role: ansible-dockerswarm }
+</code></pre>
+
+<h2 id="le-fichier-d-inventaire-swarm">Le fichier d&rsquo;inventaire swarm</h2>
+
+<p>Localisé dans le répertoire &ldquo;hosts&rdquo;, ce fichier permet de</p>
+
+<ul>
+<li>définir toutes nos hôtes et comment s&rsquo;y connecter (&ldquo;local&rdquo; pour le Swarm Manager car Ansible est éxécuté sur cette VM et &ldquo;ssh&rdquo; pour les autres. Nous devons alors spécifier l&rsquo;emplacement des clés SSH à utiliser, ces dernières étant disponibles via le répertoire synchronisé &ldquo;vagrant&rdquo;)</li>
+
+<li><p>de les grouper pour définir lesquels seront des Swarm Manager ou des Swarm Workers. Nous avons 3 groupes:</p>
+
+<ul>
+<li>docker_engine: les hôtes sur lesquels le Docker engine doit être installer</li>
+<li>docker_swarm_manager: les hôtes qui seront des Swarm Managers. Dans notre cas, nous n&rsquo;aurons n&rsquo;en aurons qu&rsquo;un, swarm-manager</li>
+<li>docker_swarm_worker: les hôtes qui seront des Swarm Workers.</li>
+</ul></li>
+</ul>
+
+<pre><code class="ini">swarm-manager   ansible_host=10.100.192.200 ansible_connection=local
+swarm-worker-01 ansible_host=10.100.192.201 ansible_connection=ssh ansible_ssh_private_key_file=/vagrant/.vagrant/machines/swarm-worker-01/virtualbox/private_key
+swarm-worker-02 ansible_host=10.100.192.202 ansible_connection=ssh ansible_ssh_private_key_file=/vagrant/.vagrant/machines/swarm-worker-02/virtualbox/private_key
+swarm-worker-03 ansible_host=10.100.192.203 ansible_connection=ssh ansible_ssh_private_key_file=/vagrant/.vagrant/machines/swarm-worker-03/virtualbox/private_key
+
+[docker_engine]
+swarm-manager
+swarm-worker-01
+swarm-worker-02
+swarm-worker-03
+
+[docker_swarm_manager]
+swarm-manager
+
+[docker_swarm_worker]
+swarm-worker-01
+swarm-worker-02
+swarm-worker-03
+</code></pre>
+
+<h2 id="configurer-la-bonne-interface-réseau">Configurer la bonne interface réseau</h2>
+
+<p>Dans notre setup avec VirtualBox, il faut que nous spécifions l&rsquo;interface réseau à utiliser (&ldquo;eth1&rdquo;) par le Docker Engine. Sinon, Ansible utilisera eth0 et donc les mauvaises adresses IP. Il suffit d&rsquo;éditer le fichier &ldquo;roles/ansible-dockerswarm/defaults/main.yml&rdquo; et d&rsquo;adapter la variable &ldquo;docker_swarm_interface&rdquo;.</p>
+
+<h1 id="création-du-cluster-swarm">Création du cluster Swarm</h1>
+
+<p>Maintenant que tout est prêt, il ne reste plus qu&rsquo;a laisser Vagrant/Ansible travailler. Placez vous dans le répertoire qui contient le fichier Vagrantfile et éxécutez la commande:</p>
+
+<pre><code class="bash">$ vagrant up
+</code></pre>
+
+<p>Au bout de quelques minutes, vous aurez 4 VMs configurées en cluster et prêtes à recevoir nos premiers services.</p>
+
+    </div>
+
+    <footer>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Categorie
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categories/livre'>Livre</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+<ul class="actions pagination">
+    
+        <li><a href="/post/dockerfile-healthcheck/"
+                class="button big previous">Dockerfile HEALTHCHECK</a></li>
+    
+
+    
+        <li><a href="/post/azure-docker-vm-image-with-packer/"
+                class="button big next">Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</a></li>
+    
+</ul>
+
+
+
+    
+        <article class="post">
+            <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "docker-patterns" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </article>
+    
+
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+                <header>
+                    <h2>Docker</h2>
+                    <p>Pratique des architectures à base de conteneurs</p>
+                </header>
+            
+            <div style="float:left; display:inline-block; ">
+            	<span style="float:left;width: 50%;">
+            		<figure>
+            			<img src="/img/book.jpg"  height="200" />
+    				</figure>
+    			</span>
+
+				<span style="vertical-align: top;  float:right;width: 50%;">
+    			<p>Disponible sur <a href="http://www.dunod.com/informatique-multimedia/developpement/developpement-web/docker">Dunod.com</a> et <a href="https://www.amazon.fr/Docker-Pratique-architectures-base-conteneurs/dp/2100747444/ref=sr_1_4?ie=UTF8">Amazon.fr</a></p>
+    			</span>
+    		</div>
+
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/dunod-docker" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="/post/azure-docker-vm-image-with-packer/">Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime="2017-04-23T15:24:18Z">
+                                    23 avril 2017
+                                </time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="/post/docker-swarm-with-ansible-vagrant/">Installer Docker Swarm avec Vagrant et Ansible</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime="2016-12-26T15:24:18Z">
+                                    26 décembre 2016
+                                </time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/livre/">Livre</a>
+                                <span style="float:right;">5</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+<section id="tags">
+    <ul class="posts">
+        <header>
+            <h3><a href="/categories/">Tags</a></h3>
+        </header>
+  
+        
+            <li><a href="/tags/chapitre-11">Chapitre 11</a></li>
+        
+            <li><a href="/tags/chapitre-3">Chapitre 3</a></li>
+        
+            <li><a href="/tags/chapitre-7">Chapitre 7</a></li>
+        
+            <li><a href="/tags/docker-1.12">Docker 1.12</a></li>
+        
+            <li><a href="/tags/docker-swarm">Docker Swarm</a></li>
+        
+            <li><a href="/tags/dockerfile">Dockerfile</a></li>
+        
+            <li><a href="/tags/installation">Installation</a></li>
+        
+            <li><a href="/tags/mac-osx">Mac OSX</a></li>
+        
+            <li><a href="/tags/microsoft-azure">Microsoft Azure</a></li>
+        
+            <li><a href="/tags/packer">Packer</a></li>
+        
+            <li><a href="/tags/terraform">Terraform</a></li>
+        
+    </ul>
+</section>
+
+
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                
+                    
+<li><a href="//github.com/dunod-docker" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

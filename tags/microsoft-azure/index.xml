@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Microsoft Azure on Docker Patterns</title>
+    <link>http://www.docker-patterns.org/tags/microsoft-azure/</link>
+    <description>Recent content in Microsoft Azure on Docker Patterns</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Sun, 23 Apr 2017 15:24:18 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.docker-patterns.org/tags/microsoft-azure/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</title>
+      <link>http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/</link>
+      <pubDate>Sun, 23 Apr 2017 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/</guid>
+      <description>Après avoir vu comment installer un cluster Docker Swarm localement, nous allons maintenant nous atteler à créer une configuration plus &amp;ldquo;cloud&amp;rdquo; en déployant cette fois-ci notre cluster sur Microsoft Azure.
+Pourquoi Microsft Azure? Tout simplement car c&amp;rsquo;est le bac à sable idéal avec environ 200 euros offerts pendant les 30 premiers jours! C&amp;rsquo;est donc parfait pour faire nos essais.
+Regardons déjà comment faire.
+Microsoft Azure Container Service (ACS) Microsot Azure fournit en standard un service qui permet de créer directement un cluster Docker, soit avec Docker Swarm mais aussi DCOS ou Kubernetes) avec toutes les ressources Azure requises (répartisseur de charge, réseaux&amp;hellip;).</description>
+    </item>
+    
+  </channel>
+</rss>

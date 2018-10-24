@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker 1.12 on Docker Patterns</title>
+    <link>http://www.docker-patterns.org/tags/docker-1.12/</link>
+    <description>Recent content in Docker 1.12 on Docker Patterns</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Mon, 26 Dec 2016 15:24:18 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.docker-patterns.org/tags/docker-1.12/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Installer Docker Swarm avec Vagrant et Ansible</title>
+      <link>http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/</link>
+      <pubDate>Mon, 26 Dec 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/</guid>
+      <description>Nous avons vu dans un post précédent comment créer un cluster Docker Swarm à l&amp;rsquo;aide de Docker Machine. Bien qu&amp;rsquo;efficace, il nous a fallu avoir recours à de nombreuses commandes manuelles, récupérer des tokens&amp;hellip; Bref, rien de très reproductible.
+C&amp;rsquo;est là où les outils de gestion d&amp;rsquo;infrastructure tel qu&amp;rsquo; Ansible entrent en jeux. Couplé avec Vagrant, nous allons voir comment nous pouvons facilement monter notre Swarm de manière rapide, automatisée et surtout fiable.</description>
+    </item>
+    
+    <item>
+      <title>Dockerfile HEALTHCHECK</title>
+      <link>http://www.docker-patterns.org/post/dockerfile-healthcheck/</link>
+      <pubDate>Fri, 02 Sep 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/dockerfile-healthcheck/</guid>
+      <description>Une autre nouveauté de Docker v1.12 est l&amp;rsquo;ajout de l&amp;rsquo;instruction HEALTHCHECK pour le Dockerfile.
+En effet, avec le nouveau mode Swarm, un docker ps n&amp;rsquo;est plus suffisant: si le conteneur &amp;ldquo;tourne&amp;rdquo; mais que l&amp;rsquo;application à l&amp;rsquo;intérieur du conteneur ne renvoie que des erreurs, comment Docker Swarm peut-il savoir qu&amp;rsquo;il doit redémarrer le conteneur? C&amp;rsquo;est là que la l&amp;rsquo;instruction HEALTHCHECK entre en jeux. Avant Docker 1.12, il fallait utiliser des mécanismes tel que les health checks de Consul ou ceux de Mesosphere.</description>
+    </item>
+    
+    <item>
+      <title>Docker Swarm avec Docker 1.12 - Partie 1</title>
+      <link>http://www.docker-patterns.org/post/docker-swarm-with-docker-1-12/</link>
+      <pubDate>Sun, 28 Aug 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/docker-swarm-with-docker-1-12/</guid>
+      <description>Fin juin, Docker Inc. a publié la dernière version du Docker Engine v1.12. C&amp;rsquo;est certainement la plus importante depuis la version v1.9 et Docker Swarm qui devenait &amp;ldquo;Production ready&amp;rdquo;.
+En effet, Docker Swarm est maintenant intégré directment dans le Docker Engine: plus besoin de conteneurs séparés sur chaque noeud ni de service de registre tel que Consul ou Etcd . Regardons concrètement comment cela fonctionne.
+Préparation de l&amp;rsquo;environnement Le plus simple est d&amp;rsquo;utiliser Docker Machine (v0.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Docker Patterns</title>
+    <link>http://www.docker-patterns.org/tags/</link>
+    <description>Recent content in Tags on Docker Patterns</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Mon, 26 Dec 2016 15:24:18 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.docker-patterns.org/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Chapitre 11</title>
+      <link>http://www.docker-patterns.org/tags/chapitre-11/</link>
+      <pubDate>Mon, 26 Dec 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/chapitre-11/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapitre 3</title>
+      <link>http://www.docker-patterns.org/tags/chapitre-3/</link>
+      <pubDate>Wed, 24 Aug 2016 05:00:33 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/chapitre-3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Chapitre 7</title>
+      <link>http://www.docker-patterns.org/tags/chapitre-7/</link>
+      <pubDate>Fri, 02 Sep 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/chapitre-7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker 1.12</title>
+      <link>http://www.docker-patterns.org/tags/docker-1.12/</link>
+      <pubDate>Mon, 26 Dec 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/docker-1.12/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker Swarm</title>
+      <link>http://www.docker-patterns.org/tags/docker-swarm/</link>
+      <pubDate>Sun, 23 Apr 2017 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/docker-swarm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dockerfile</title>
+      <link>http://www.docker-patterns.org/tags/dockerfile/</link>
+      <pubDate>Fri, 02 Sep 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/dockerfile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Installation</title>
+      <link>http://www.docker-patterns.org/tags/installation/</link>
+      <pubDate>Wed, 24 Aug 2016 05:00:33 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/installation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mac OSX</title>
+      <link>http://www.docker-patterns.org/tags/mac-osx/</link>
+      <pubDate>Wed, 24 Aug 2016 05:00:33 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/mac-osx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microsoft Azure</title>
+      <link>http://www.docker-patterns.org/tags/microsoft-azure/</link>
+      <pubDate>Sun, 23 Apr 2017 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/microsoft-azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Packer</title>
+      <link>http://www.docker-patterns.org/tags/packer/</link>
+      <pubDate>Sun, 23 Apr 2017 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/packer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Terraform</title>
+      <link>http://www.docker-patterns.org/tags/terraform/</link>
+      <pubDate>Sun, 23 Apr 2017 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/tags/terraform/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

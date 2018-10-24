@@ -1,0 +1,680 @@
+
+
+
+    
+
+
+
+
+<!DOCTYPE HTML>
+
+<html>
+    <head>
+        
+            <title>Terraform - Docker Patterns</title>
+        
+
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="generator" content="Hugo 0.49.2" />
+        
+
+
+        
+        
+            
+                <meta name="description" content="Docker ">
+            
+        
+
+        <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Terraform"/>
+<meta name="twitter:description" content="Docker "/>
+
+        <meta property="og:title" content="Terraform" />
+<meta property="og:description" content="Docker " />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="http://www.docker-patterns.org/tags/terraform/" />
+<meta property="og:updated_time" content="2016-08-28T15:24:18&#43;00:00"/>
+
+        
+<meta itemprop="name" content="Terraform">
+<meta itemprop="description" content="Docker ">
+
+
+        
+
+        
+
+        
+        
+            
+        
+
+        
+        
+            <link rel="stylesheet" href="/css/google-font.css" />
+            <link rel="stylesheet" href="/css/font-awesome.min.css" />
+            <link rel="stylesheet" href="/css/main.css" />
+            <link rel="stylesheet" href="/css/add-on.css" />
+            <link rel="stylesheet" href="/css/monokai-sublime.css">
+        
+
+        
+
+        
+        
+        
+            
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-83634681-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+
+        
+    </head>
+    <body>
+
+        
+        <div id="wrapper">
+
+    
+<header id="header">
+    
+        <h2><a href="/">Docker patterns</i></a></h2>
+    
+
+    <nav class="links">
+        <ul>
+            
+                <li>
+                    <a href="/categories">
+                        Categories
+                    </a>
+                </li>
+            
+        </ul>
+    </nav>
+    <nav class="main">
+        <ul>
+            
+            <li class="search">
+                <a class="fa-search" href="#search">Search</a>
+                <form id="search" method="get" action="//google.com/search">
+                    <input type="text" name="q" placeholder="Search" />
+                    <input type="hidden" name="q" value="site:http://www.docker-patterns.org">
+                </form>
+            </li>
+            <li class="menu">
+                <a class="fa-bars" href="#menu">Menu</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+
+<section id="menu">
+
+    
+        <section>
+            <form class="search" method="get" action="//google.com/search">
+                <input type="text" name="q" placeholder="Search" />
+                <input type="hidden" name="q" value="site:http://www.docker-patterns.org">
+            </form>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                
+                    <li>
+                        <a href="/categories">
+                            <h3>
+                                
+                                Categories
+                            </h3>
+                        </a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        <section>
+            <ul class="links">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    <li>
+                        <a href="http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/"><p>Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</p></a>
+                    </li>
+                
+                    <li>
+                        <a href="http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/"><p>Installer Docker Swarm avec Vagrant et Ansible</p></a>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+        
+</section>
+
+    
+    <div id="main">
+        
+        
+            
+        
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://www.docker-patterns.org/post/docker-swarm-with-docker-1-12/">Docker Swarm avec Docker 1.12 - Partie 1</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime="2016-08-28T15:24:18Z">
+            28 août 2016</time>
+        <span class="author">Thomas Garlot</span>
+        
+            <p>5 minutes de lecture</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>Fin juin, Docker Inc. a publié la dernière version du Docker Engine v1.12. C&rsquo;est certainement la plus importante depuis la version v1.9 et Docker Swarm qui devenait &ldquo;Production ready&rdquo;.
+En effet, Docker Swarm est maintenant intégré directment dans le Docker Engine: plus besoin de conteneurs séparés sur chaque noeud ni de service de registre tel que Consul ou Etcd . Regardons concrètement comment cela fonctionne.
+Préparation de l&rsquo;environnement Le plus simple est d&rsquo;utiliser Docker Machine (v0.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="/post/docker-swarm-with-docker-1-12/" class="button big">Continuer à lire</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Categorie
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categories/livre'>Livre</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://www.docker-patterns.org/post/docker-pour-mac/">Docker pour Mac</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime="2016-08-24T05:00:33Z">
+            24 août 2016</time>
+        <span class="author">Thomas Garlot</span>
+        
+            <p>1 minutes de lecture</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>Il existe maintenant deux modes d&rsquo;installation de docker pour MacOSX:
+ l&rsquo;option Toolbox (basée sur une machine virtuelle) que nous avons décrite dans notre ouvrage l&rsquo;option &ldquo;native&rdquo; (enfin pas exactement puisque basée sur XHYVE) appelée sobrement : Docker for Mac  Pour plus d&rsquo;information</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="/post/docker-pour-mac/" class="button big">Continuer à lire</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Categorie
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categories/livre'>Livre</a></li>
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://www.docker-patterns.org/post/">Posts</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime="2017-04-23T15:24:18Z">
+            23 avril 2017</time>
+        <span class="author"></span>
+        
+            <p>0 minutes de lecture</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p></p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="/post/" class="button big">Continuer à lire</a></li>
+        </ul>
+        <ul class="stats">
+    
+
+    
+    
+</ul>
+
+    </footer>
+</article>
+
+        
+
+        
+<ul class="actions pagination">
+    
+        <li><a href="/tags/terraform/"
+                class="button big previous">Previous Page</a></li>
+    
+
+    
+        <li><a href="#" class="disabled button big next">Next Page</a></li>
+    
+</ul>
+
+    </div>
+    
+<section id="sidebar">
+
+    
+        <section id="intro">
+            
+            
+            
+                <header>
+                    <h2>Docker</h2>
+                    <p>Pratique des architectures à base de conteneurs</p>
+                </header>
+            
+            <div style="float:left; display:inline-block; ">
+            	<span style="float:left;width: 50%;">
+            		<figure>
+            			<img src="/img/book.jpg"  height="200" />
+    				</figure>
+    			</span>
+
+				<span style="vertical-align: top;  float:right;width: 50%;">
+    			<p>Disponible sur <a href="http://www.dunod.com/informatique-multimedia/developpement/developpement-web/docker">Dunod.com</a> et <a href="https://www.amazon.fr/Docker-Pratique-architectures-base-conteneurs/dp/2100747444/ref=sr_1_4?ie=UTF8">Amazon.fr</a></p>
+    			</span>
+    		</div>
+
+            <ul class="icons">
+                
+                    <li><a href="http://www.docker-patterns.org/tags/terraform/index.xml" type="application/rss+xml"
+                        target="_blank" title="RSS" class="fa fa-rss"></a></li>
+                
+                
+                    
+<li><a href="//github.com/dunod-docker" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+        </section>
+
+    
+        <section id="recent-posts">
+            <ul class="posts">
+                <header>
+                    <h3>Recent Posts</h3>
+                </header>
+                
+                    
+                
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="/post/azure-docker-vm-image-with-packer/">Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime="2017-04-23T15:24:18Z">
+                                    23 avril 2017
+                                </time>
+                            </header>
+                        </article>
+                    </li>
+                
+                    <li>
+                        <article>
+                            <header>
+                                <h3><a href="/post/docker-swarm-with-ansible-vagrant/">Installer Docker Swarm avec Vagrant et Ansible</a></h3>
+                                
+                                    
+                                
+                                <time class="published" datetime="2016-12-26T15:24:18Z">
+                                    26 décembre 2016
+                                </time>
+                            </header>
+                        </article>
+                    </li>
+                
+
+                
+                    <li>
+                        <ul class="actions">
+                            <li><a href=
+                            
+                                "/post/"
+                            
+                            class="button">View more posts</a></li>
+                        </ul>
+                    </li>
+                
+            </ul>
+        </section>
+
+    
+    
+    
+    
+        <section id="categories">
+            <ul class="posts">
+                <header>
+                    <h3><a href="/categories/">Categories</a></h3>
+                </header>
+
+                
+                    
+                
+
+                
+                    <li>
+                        <article>
+                            <header>
+                                <a href="/categories/livre/">Livre</a>
+                                <span style="float:right;">5</span>
+                            </header>
+                        </article>
+                    </li>
+                
+            </ul>
+        </section>
+    
+
+<section id="tags">
+    <ul class="posts">
+        <header>
+            <h3><a href="/categories/">Tags</a></h3>
+        </header>
+  
+        
+            <li><a href="/tags/chapitre-11">Chapitre 11</a></li>
+        
+            <li><a href="/tags/chapitre-3">Chapitre 3</a></li>
+        
+            <li><a href="/tags/chapitre-7">Chapitre 7</a></li>
+        
+            <li><a href="/tags/docker-1.12">Docker 1.12</a></li>
+        
+            <li><a href="/tags/docker-swarm">Docker Swarm</a></li>
+        
+            <li><a href="/tags/dockerfile">Dockerfile</a></li>
+        
+            <li><a href="/tags/installation">Installation</a></li>
+        
+            <li><a href="/tags/mac-osx">Mac OSX</a></li>
+        
+            <li><a href="/tags/microsoft-azure">Microsoft Azure</a></li>
+        
+            <li><a href="/tags/packer">Packer</a></li>
+        
+            <li><a href="/tags/terraform">Terraform</a></li>
+        
+    </ul>
+</section>
+
+
+
+    
+        
+
+    
+        <section id="footer">
+            <ul class="icons">
+                
+                    <li><a href="http://www.docker-patterns.org/tags/terraform/index.xml" type="application/rss+xml"
+                        target="_blank" title="RSS" class="fa fa-rss"></a></li>
+                
+                
+                    
+<li><a href="//github.com/dunod-docker" target="_blank" title="GitHub" class="fa fa-github"></a></li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+            </ul>
+        </section>
+
+</section>
+
+            </div>
+        <a id="back-to-top" href="#" class="fa fa-arrow-up fa-border fa-2x"></a>
+        
+
+        
+        
+            
+        
+
+        
+        
+            <script src="/js/jquery.min.js"></script>
+            <script src="/js/skel.min.js"></script>
+            <script src="/js/util.js"></script>
+            <script src="/js/main.js"></script>
+            <script src="/js/backToTop.js"></script>
+            <script src="/js/highlight.pack.js"></script>
+        
+
+        
+
+            
+            <script>hljs.initHighlightingOnLoad();</script>
+            
+    </body>
+</html>
+

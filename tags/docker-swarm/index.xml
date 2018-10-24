@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker Swarm on Docker Patterns</title>
+    <link>http://www.docker-patterns.org/tags/docker-swarm/</link>
+    <description>Recent content in Docker Swarm on Docker Patterns</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Sun, 23 Apr 2017 15:24:18 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.docker-patterns.org/tags/docker-swarm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</title>
+      <link>http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/</link>
+      <pubDate>Sun, 23 Apr 2017 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/</guid>
+      <description>Après avoir vu comment installer un cluster Docker Swarm localement, nous allons maintenant nous atteler à créer une configuration plus &amp;ldquo;cloud&amp;rdquo; en déployant cette fois-ci notre cluster sur Microsoft Azure.
+Pourquoi Microsft Azure? Tout simplement car c&amp;rsquo;est le bac à sable idéal avec environ 200 euros offerts pendant les 30 premiers jours! C&amp;rsquo;est donc parfait pour faire nos essais.
+Regardons déjà comment faire.
+Microsoft Azure Container Service (ACS) Microsot Azure fournit en standard un service qui permet de créer directement un cluster Docker, soit avec Docker Swarm mais aussi DCOS ou Kubernetes) avec toutes les ressources Azure requises (répartisseur de charge, réseaux&amp;hellip;).</description>
+    </item>
+    
+    <item>
+      <title>Installer Docker Swarm avec Vagrant et Ansible</title>
+      <link>http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/</link>
+      <pubDate>Mon, 26 Dec 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/</guid>
+      <description>Nous avons vu dans un post précédent comment créer un cluster Docker Swarm à l&amp;rsquo;aide de Docker Machine. Bien qu&amp;rsquo;efficace, il nous a fallu avoir recours à de nombreuses commandes manuelles, récupérer des tokens&amp;hellip; Bref, rien de très reproductible.
+C&amp;rsquo;est là où les outils de gestion d&amp;rsquo;infrastructure tel qu&amp;rsquo; Ansible entrent en jeux. Couplé avec Vagrant, nous allons voir comment nous pouvons facilement monter notre Swarm de manière rapide, automatisée et surtout fiable.</description>
+    </item>
+    
+    <item>
+      <title>Docker Swarm avec Docker 1.12 - Partie 1</title>
+      <link>http://www.docker-patterns.org/post/docker-swarm-with-docker-1-12/</link>
+      <pubDate>Sun, 28 Aug 2016 15:24:18 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/docker-swarm-with-docker-1-12/</guid>
+      <description>Fin juin, Docker Inc. a publié la dernière version du Docker Engine v1.12. C&amp;rsquo;est certainement la plus importante depuis la version v1.9 et Docker Swarm qui devenait &amp;ldquo;Production ready&amp;rdquo;.
+En effet, Docker Swarm est maintenant intégré directment dans le Docker Engine: plus besoin de conteneurs séparés sur chaque noeud ni de service de registre tel que Consul ou Etcd . Regardons concrètement comment cela fonctionne.
+Préparation de l&amp;rsquo;environnement Le plus simple est d&amp;rsquo;utiliser Docker Machine (v0.</description>
+    </item>
+    
+  </channel>
+</rss>

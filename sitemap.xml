@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/</loc>
+    <lastmod>2017-04-23T15:24:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/</loc>
+    <lastmod>2016-12-26T15:24:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/post/dockerfile-healthcheck/</loc>
+    <lastmod>2016-09-02T15:24:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/post/docker-swarm-with-docker-1-12/</loc>
+    <lastmod>2016-08-28T15:24:18+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/post/docker-pour-mac/</loc>
+    <lastmod>2016-08-24T05:00:33+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/chapitre-11/</loc>
+    <lastmod>2016-12-26T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/chapitre-3/</loc>
+    <lastmod>2016-08-24T05:00:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/chapitre-7/</loc>
+    <lastmod>2016-09-02T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/docker-1.12/</loc>
+    <lastmod>2016-12-26T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/</loc>
+    <lastmod>2017-04-23T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/docker-swarm/</loc>
+    <lastmod>2017-04-23T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/dockerfile/</loc>
+    <lastmod>2016-09-02T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/installation/</loc>
+    <lastmod>2016-08-24T05:00:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/categories/livre/</loc>
+    <lastmod>2017-04-23T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/mac-osx/</loc>
+    <lastmod>2016-08-24T05:00:33+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/microsoft-azure/</loc>
+    <lastmod>2017-04-23T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/packer/</loc>
+    <lastmod>2017-04-23T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/post/</loc>
+    <lastmod>2017-04-23T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/</loc>
+    <lastmod>2016-12-26T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://www.docker-patterns.org/tags/terraform/</loc>
+    <lastmod>2017-04-23T15:24:18+00:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+</urlset>

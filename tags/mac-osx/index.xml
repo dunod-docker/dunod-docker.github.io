@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac OSX on Docker Patterns</title>
+    <link>http://www.docker-patterns.org/tags/mac-osx/</link>
+    <description>Recent content in Mac OSX on Docker Patterns</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-fr</language>
+    <lastBuildDate>Wed, 24 Aug 2016 05:00:33 +0000</lastBuildDate>
+    
+	<atom:link href="http://www.docker-patterns.org/tags/mac-osx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker pour Mac</title>
+      <link>http://www.docker-patterns.org/post/docker-pour-mac/</link>
+      <pubDate>Wed, 24 Aug 2016 05:00:33 +0000</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/docker-pour-mac/</guid>
+      <description>Il existe maintenant deux modes d&amp;rsquo;installation de docker pour MacOSX:
+ l&amp;rsquo;option Toolbox (basée sur une machine virtuelle) que nous avons décrite dans notre ouvrage l&amp;rsquo;option &amp;ldquo;native&amp;rdquo; (enfin pas exactement puisque basée sur XHYVE) appelée sobrement : Docker for Mac  Pour plus d&amp;rsquo;information</description>
+    </item>
+    
+  </channel>
+</rss>
