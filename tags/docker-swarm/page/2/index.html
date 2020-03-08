@@ -35,7 +35,7 @@
 <meta property="og:description" content="Docker " />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="http://www.docker-patterns.org/tags/docker-swarm/" />
-<meta property="og:updated_time" content="2016-08-28T15:24:18&#43;00:00"/>
+<meta property="og:updated_time" content="2016-09-02T15:24:18&#43;00:00"/>
 
         
 <meta itemprop="name" content="Docker Swarm">
@@ -159,11 +159,11 @@ if (!doNotTrack) {
 
                 
                     <li>
-                        <a href="http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/"><p>Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</p></a>
+                        <a href="http://www.docker-patterns.org/post/erratum-edition-2/"><p>Erratum Edition 2</p></a>
                     </li>
                 
                     <li>
-                        <a href="http://www.docker-patterns.org/post/docker-swarm-with-ansible-vagrant/"><p>Installer Docker Swarm avec Vagrant et Ansible</p></a>
+                        <a href="http://www.docker-patterns.org/post/azure-docker-vm-image-with-packer/"><p>Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</p></a>
                     </li>
                 
             </ul>
@@ -179,6 +179,72 @@ if (!doNotTrack) {
         
             
         
+
+        
+            <article class="post">
+    <header>
+    <div class="title">
+        
+            <h2><a href="http://www.docker-patterns.org/post/dockerfile-healthcheck/">Dockerfile HEALTHCHECK</a></h2>
+        
+        
+    </div>
+    <div class="meta">
+        
+            
+        
+
+        <time class="published"
+            datetime="2016-09-02T15:24:18Z">
+            2 septembre 2016</time>
+        <span class="author">Thomas Garlot</span>
+        
+            <p>3 minutes de lecture</p>
+        
+        
+    </div>
+</header>
+
+    
+
+    <p>Une autre nouveauté de Docker v1.12 est l&rsquo;ajout de l&rsquo;instruction HEALTHCHECK pour le Dockerfile.
+En effet, avec le nouveau mode Swarm, un docker ps n&rsquo;est plus suffisant: si le conteneur &ldquo;tourne&rdquo; mais que l&rsquo;application à l&rsquo;intérieur du conteneur ne renvoie que des erreurs, comment Docker Swarm peut-il savoir qu&rsquo;il doit redémarrer le conteneur? C&rsquo;est là que la l&rsquo;instruction HEALTHCHECK entre en jeux. Avant Docker 1.12, il fallait utiliser des mécanismes tel que les health checks de Consul ou ceux de Mesosphere.</p>
+
+    <footer>
+        <ul class="actions">
+            <li><a href="/post/dockerfile-healthcheck/" class="button big">Continuer à lire</a></li>
+        </ul>
+        <ul class="stats">
+    
+        
+
+        
+        
+            <li>
+                
+                
+                    
+
+                    
+
+                    
+
+                    
+                        Categorie
+                    
+                
+            </li>
+        
+    
+
+    
+    
+        <li><a href='/categories/livre'>Livre</a></li>
+    
+</ul>
+
+    </footer>
+</article>
 
         
             <article class="post">
@@ -314,49 +380,6 @@ Préparation de l&rsquo;environnement Le plus simple est d&rsquo;utiliser Docker
 </article>
 
         
-            <article class="post">
-    <header>
-    <div class="title">
-        
-            <h2><a href="http://www.docker-patterns.org/post/">Posts</a></h2>
-        
-        
-    </div>
-    <div class="meta">
-        
-            
-        
-
-        <time class="published"
-            datetime="2017-04-23T15:24:18Z">
-            23 avril 2017</time>
-        <span class="author"></span>
-        
-            <p>0 minutes de lecture</p>
-        
-        
-    </div>
-</header>
-
-    
-
-    <p></p>
-
-    <footer>
-        <ul class="actions">
-            <li><a href="/post/" class="button big">Continuer à lire</a></li>
-        </ul>
-        <ul class="stats">
-    
-
-    
-    
-</ul>
-
-    </footer>
-</article>
-
-        
 
         
 <ul class="actions pagination">
@@ -366,7 +389,8 @@ Préparation de l&rsquo;environnement Le plus simple est d&rsquo;utiliser Docker
     
 
     
-        <li><a href="#" class="disabled button big next">Next Page</a></li>
+        <li><a href="/tags/docker-swarm/page/3/"
+                class="button big next">Next Page</a></li>
     
 </ul>
 
@@ -478,12 +502,12 @@ Préparation de l&rsquo;environnement Le plus simple est d&rsquo;utiliser Docker
                     <li>
                         <article>
                             <header>
-                                <h3><a href="/post/azure-docker-vm-image-with-packer/">Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</a></h3>
+                                <h3><a href="/post/erratum-edition-2/">Erratum Edition 2</a></h3>
                                 
                                     
                                 
-                                <time class="published" datetime="2017-04-23T15:24:18Z">
-                                    23 avril 2017
+                                <time class="published" datetime="2020-03-08T17:31:21&#43;01:00">
+                                    8 mars 2020
                                 </time>
                             </header>
                         </article>
@@ -492,12 +516,12 @@ Préparation de l&rsquo;environnement Le plus simple est d&rsquo;utiliser Docker
                     <li>
                         <article>
                             <header>
-                                <h3><a href="/post/docker-swarm-with-ansible-vagrant/">Installer Docker Swarm avec Vagrant et Ansible</a></h3>
+                                <h3><a href="/post/azure-docker-vm-image-with-packer/">Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</a></h3>
                                 
                                     
                                 
-                                <time class="published" datetime="2016-12-26T15:24:18Z">
-                                    26 décembre 2016
+                                <time class="published" datetime="2017-04-23T15:24:18Z">
+                                    23 avril 2017
                                 </time>
                             </header>
                         </article>

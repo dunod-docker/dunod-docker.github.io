@@ -6,10 +6,20 @@
     <description>Recent content in Posts on Docker Patterns</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-fr</language>
-    <lastBuildDate>Sun, 23 Apr 2017 15:24:18 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 08 Mar 2020 17:31:21 +0100</lastBuildDate>
     
 	<atom:link href="http://www.docker-patterns.org/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Erratum Edition 2</title>
+      <link>http://www.docker-patterns.org/post/erratum-edition-2/</link>
+      <pubDate>Sun, 08 Mar 2020 17:31:21 +0100</pubDate>
+      
+      <guid>http://www.docker-patterns.org/post/erratum-edition-2/</guid>
+      <description> Chapitre 8 La commande brctl n&amp;rsquo;est plus disponible sous CentOS 7.7. il faut utiliser maintenant la commande ìp
+ip a show docker0 </description>
+    </item>
     
     <item>
       <title>Partie 1 - Docker Swarm sur Microsoft Azure - Création d&#39;une image de VM Docker avec Packer</title>
