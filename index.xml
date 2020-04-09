@@ -12,13 +12,15 @@
     
     
     <item>
-      <title>Erratum Edition 2 - chapitre 8.2</title>
+      <title>Erratum Edition 2</title>
       <link>http://www.docker-patterns.org/post/erratum-edition-2/</link>
       <pubDate>Wed, 08 Apr 2020 17:31:21 +0100</pubDate>
       
       <guid>http://www.docker-patterns.org/post/erratum-edition-2/</guid>
-      <description>Chapitre 8.2 La commande brctl n&amp;rsquo;est plus disponible sous CentOS 7.7. il faut utiliser maintenant la commande ìp
-ip a show docker0 Merci à herrib pour la remarque!</description>
+      <description>Chapitre 3.3.2 la commande socat -v UNIX-LISTEN:/tmp/socatproxy.sock, fork, reuseaddr UNIX-CONNECT:/var/run/docker.sock &amp;amp; renvoie une erreur si elle est utilisée avec Docker Desktop for mac.
+Il faut la remplacer par socat -v UNIX-LISTEN:/tmp/socatproxy.sock, UNIX-CONNECT:/var/run/docker.sock &amp;amp;.
+Chapitre 8.2 La commande brctl n&amp;rsquo;est plus disponible sous CentOS 7.7. il faut utiliser maintenant la commande ìp
+ip a show docker0 Merci à herrib pour les 2 issues levées sur GitHub !!</description>
     </item>
     
     <item>

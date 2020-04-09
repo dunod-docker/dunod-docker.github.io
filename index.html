@@ -158,7 +158,7 @@ if (!doNotTrack) {
 
                 
                     <li>
-                        <a href="http://www.docker-patterns.org/post/erratum-edition-2/"><p>Erratum Edition 2 - chapitre 8.2</p></a>
+                        <a href="http://www.docker-patterns.org/post/erratum-edition-2/"><p>Erratum Edition 2</p></a>
                     </li>
                 
                     <li>
@@ -179,7 +179,7 @@ if (!doNotTrack) {
     <header>
     <div class="title">
         
-            <h2><a href="http://www.docker-patterns.org/post/erratum-edition-2/">Erratum Edition 2 - chapitre 8.2</a></h2>
+            <h2><a href="http://www.docker-patterns.org/post/erratum-edition-2/">Erratum Edition 2</a></h2>
         
         
     </div>
@@ -209,13 +209,19 @@ if (!doNotTrack) {
     <div id="content">
         
 
+<h1 id="chapitre-3-3-2">Chapitre 3.3.2</h1>
+
+<p>la commande <pre>socat -v UNIX-LISTEN:/tmp/socatproxy.sock, fork, reuseaddr UNIX-CONNECT:/var/run/docker.sock &amp;</pre> renvoie une erreur si elle est utilisée avec Docker Desktop for mac.</p>
+
+<p>Il faut la remplacer par <pre>socat -v UNIX-LISTEN:/tmp/socatproxy.sock, UNIX-CONNECT:/var/run/docker.sock &amp;</pre>.</p>
+
 <h1 id="chapitre-8-2">Chapitre 8.2</h1>
 
 <p>La commande brctl n&rsquo;est plus disponible sous CentOS 7.7. il faut utiliser maintenant la commande <code>ìp</code></p>
 
 <pre><code class="bash">ip a show docker0</code></pre>
 
-<p>Merci à <a href="https://github.com/herrib">herrib</a> pour la remarque!</p>
+<p>Merci à <a href="https://github.com/herrib">herrib</a> pour les 2 issues levées sur GitHub !!</p>
 
     </div>
 
@@ -276,7 +282,7 @@ if (!doNotTrack) {
             
 
 
-<li><a href="//twitter.com/share?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2ferratum-edition-2%2f&text=Erratum%20Edition%202%20-%20chapitre%208.2&via=" target="_blank" class="share-btn twitter">
+<li><a href="//twitter.com/share?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2ferratum-edition-2%2f&text=Erratum%20Edition%202&via=" target="_blank" class="share-btn twitter">
     <i class="fa fa-twitter"></i>
     <p>Twitter</p>
 </a></li>
@@ -294,19 +300,19 @@ if (!doNotTrack) {
 </a></li>
 
 
-<li><a href="//reddit.com/submit?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2ferratum-edition-2%2f&title=Erratum%20Edition%202%20-%20chapitre%208.2" target="_blank" class="share-btn reddit">
+<li><a href="//reddit.com/submit?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2ferratum-edition-2%2f&title=Erratum%20Edition%202" target="_blank" class="share-btn reddit">
     <i class="fa fa-reddit-alien"></i>
     <p>Reddit</p>
 </a></li>
 
 
-<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2ferratum-edition-2%2f&title=Erratum%20Edition%202%20-%20chapitre%208.2" target="_blank" class="share-btn linkedin">
+<li><a href="//www.linkedin.com/shareArticle?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2ferratum-edition-2%2f&title=Erratum%20Edition%202" target="_blank" class="share-btn linkedin">
     <i class="fa fa-linkedin"></i>
     <p>LinkedIn</p>
 </a></li>
 
 
-<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2ferratum-edition-2%2f&title=Erratum%20Edition%202%20-%20chapitre%208.2" target="_blank" class="share-btn stumbleupon">
+<li><a href="//www.stumbleupon.com/submit?url=http%3a%2f%2fwww.docker-patterns.org%2fpost%2ferratum-edition-2%2f&title=Erratum%20Edition%202" target="_blank" class="share-btn stumbleupon">
     <i class="fa fa-stumbleupon"></i>
     <p>StumbleUpon</p>
 </a></li>
@@ -430,7 +436,7 @@ if (!doNotTrack) {
                     <li>
                         <article>
                             <header>
-                                <h3><a href="/post/erratum-edition-2/">Erratum Edition 2 - chapitre 8.2</a></h3>
+                                <h3><a href="/post/erratum-edition-2/">Erratum Edition 2</a></h3>
                                 
                                     
                                 
